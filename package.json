@@ -1,0 +1,22 @@
+{
+  "name": "remark-figcaptions",
+  "version": "0.0.1",
+  "description": "remark plugin to wrap certain elements in a `<figure>` tag and add a `<figcaption>`.",
+  "repository": "https://github.com/changethe/remark-figcaptions",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [
+    "remark",
+    "plugin",
+    "figure",
+    "figcaption",
+    "blockquote",
+    "table",
+    "caption"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "unist-util-visit-parents": "^5.1.3"
+  }
+}
