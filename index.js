@@ -1,7 +1,7 @@
 import { visitParents } from 'unist-util-visit-parents'
 
 function captionWrapper() {
-  const markers = ['caption:', 'tabelle:', 'zitat:']
+  const markers = ['caption:', 'table:', 'quote:', 'cite:']
   const classNames = {
     table: 'table-figure',
     blockquote: 'blockquote-figure',

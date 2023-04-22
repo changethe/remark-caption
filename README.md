@@ -10,7 +10,9 @@ currently works for blockquotes and tables.
 
 just add a caption marker on the next line after the blockquote or table and then the caption text.
 
-markers: `caption:`, `table:`, `quote:`
+markers: `caption:`, `table:`, `quote:`, `cite:`
+
+markers are case-insensitive.
 
 ```markdown
 > blockqupte caption: this will be the caption
