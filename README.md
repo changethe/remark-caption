@@ -15,7 +15,9 @@ markers: `caption:`, `table:`, `quote:`, `cite:`
 markers are case-insensitive.
 
 ```markdown
-> blockqupte caption: this will be the caption
+> blockqupte
+
+caption: this will be the caption
 ```
 
 if no caption is detected, it will still wrap it in a figure, but not add a `<figcaption>` tag.
