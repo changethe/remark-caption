@@ -1,17 +1,20 @@
 {
-  "name": "remark-figcaptions",
+  "name": "remark-caption",
   "version": "0.0.1",
-  "description": "remark plugin to wrap certain elements in a `<figure>` tag and add a `<figcaption>`.",
-  "repository": "https://github.com/changethe/remark-figcaptions",
+  "description": "remark plugin to add syntax for captioning elements",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/changethe/remark-caption.git"
+  },
+  "bugs": {
+    "url": "https://github.com/changethe/remark-caption"
+  },
+  "homepage": "https://github.com/changethe/remark-caption#readme",
   "main": "index.js",
   "scripts": {},
   "keywords": [
     "remark",
-    "plugin",
-    "figure",
     "figcaption",
-    "blockquote",
-    "table",
     "caption"
   ],
   "author": "",

@@ -1,14 +1,13 @@
 # remark-figcaptions
 
-remark plugin to wrap certain elements in a `<figure>` tag.
-
-adds custom syntax to add a `<figcaption>` to them.
+remark plugin to wrap certain elements in a `<figure>` tag and give them a `<figcaption>`.
 
 currently works for blockquotes and tables.
 
 ## syntax:
 
-just add a caption marker on the next line after the blockquote or table and then the caption text.
+just add a caption marker on the next line after the blockquote or table followed by the caption
+text.
 
 markers: `caption:`, `table:`, `quote:`, `cite:`
 
