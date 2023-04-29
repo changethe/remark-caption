@@ -24,10 +24,21 @@ if no caption is detected, it will still wrap it in a figure, but not add a `<fi
 will also give the wrapping figcaption a class for easy styling with css. `blockquote-figure` is the
 class for blockquotes and `table-figure` for tables.
 
+## config/options:
+
+```
+captionWrapper({
+  markers: ['marker1:', 'marker2:', 'anothermarker:'], // default: ['caption:', 'table:', 'quote:', 'cite:']
+  classNames: {
+    table: 'custom-table-figure', // default: 'table-figure'
+    blockquote: 'custom-blockquote-figure', // default: 'blockquote-figure'
+  }
+})
+```
+
 ## todo
 
 - typescript
 - add tests
 - add more elements to wrap: images, code blocks, etc.
-- make markers and classes configurable
 - write an actual readme

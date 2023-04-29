@@ -1,6 +1,7 @@
 {
   "name": "remark-caption",
-  "version": "0.0.1",
+  "type": "module",
+  "version": "0.0.2",
   "description": "remark plugin to add syntax for captioning elements",
   "repository": {
     "type": "git",
