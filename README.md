@@ -45,7 +45,7 @@ rest of the markdown content
 the wrapping figcaption will get a class attribute for easy styling with css. `blockquote-figure` is
 the class for blockquotes and `table-figure` for tables.
 
-### configuration:
+## configuration:
 
 | Name       | Type   | default                                                   | Description                                                          |
 | ---------- | ------ | --------------------------------------------------------- | -------------------------------------------------------------------- |
@@ -55,10 +55,10 @@ the class for blockquotes and `table-figure` for tables.
 for example:
 
 ```js
-  markers: ['custommarker1:', 'marker2:', 'anothermarker:'], // default: ['caption:', 'table:', 'quote:', 'cite:']
+  markers: ['custommarker1:', 'marker2:', 'anothermarker:'],
   classNames: {
-    table: 'custom-table-figure', // default: 'table-figure'
-    blockquote: 'custom-blockquote-figure', // default: 'blockquote-figure'
+    table: 'custom-table-figure-class',
+    blockquote: 'custom-blockquote-figure-class',
   }
 ```
 
