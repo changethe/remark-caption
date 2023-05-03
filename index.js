@@ -14,20 +14,37 @@ function captionWrapper(options = {}) {
 
       const nextNode = parent.children[index + 1]
       let figcaptionNode
+      let citeUrl = ''
 
-      if (nextNode && nextNode.type === 'paragraph' && nextNode.children[0].type === 'text') {
-        const textNode = nextNode.children[0]
-        const foundMarker = markers.find(
-          (marker) => textNode.value.toLowerCase().indexOf(marker.toLowerCase()) !== -1
+      if (nextNode && nextNode.type === 'paragraph') {
+        const foundMarker = markers.find((marker) =>
+          nextNode.children.some(
+            (child) =>
+              child.type === 'text' &&
+              child.value.toLowerCase().indexOf(marker.toLowerCase()) !== -1
+          )
         )
 
         if (foundMarker) {
-          const markerIndex = textNode.value.toLowerCase().indexOf(foundMarker.toLowerCase())
-          const figcaptionText = textNode.value.slice(markerIndex + foundMarker.length).trim()
+          const markerIndex = nextNode.children[0].value
+            .toLowerCase()
+            .indexOf(foundMarker.toLowerCase())
+
+          nextNode.children[0].value = nextNode.children[0].value.replace(foundMarker, '').trim()
+          const figcaptionContent = nextNode.children
 
           figcaptionNode = {
             type: 'html',
-            value: `<figcaption>${figcaptionText}</figcaption>`,
+            value: `<figcaption>${figcaptionContent
+              .map((child) => {
+                if (child.type === 'text') {
+                  return child.value
+                } else if (child.type === 'link') {
+                  citeUrl = child.url
+                  return ` <a href="${child.url}" target="_blank" rel="noopener noreferrer">${child.children[0].value}</a>`
+                }
+              })
+              .join('')}</figcaption>`,
           }
 
           // Remove the nextNode as its content is now in the figcaption
@@ -44,6 +61,13 @@ function captionWrapper(options = {}) {
       const closingFigureNode = {
         type: 'html',
         value: '</figure>',
+      }
+
+      // Add cite attribute to blockquote
+      if (node.type === 'blockquote' && citeUrl) {
+        node.data = node.data || {}
+        node.data.hProperties = node.data.hProperties || {}
+        node.data.hProperties.cite = citeUrl
       }
 
       const nodesToInsert = [figureNode, node]
