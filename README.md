@@ -1,39 +1,65 @@
-# remark-figcaptions
+# remark-caption
 
-remark plugin to wrap certain elements in a `<figure>` tag and give them a `<figcaption>`.
+remark plugin to add syntax for captioning blockquotes and tables.
 
-currently works for blockquotes and tables.
+blockquotes and tables are wrapped in a `<figure>` tag by default and given a `<figcaption>` with
+the caption, if one is provided.
+
+for blockquotes: if the caption contains a link, it will also be added to the `cite` attribute in
+the `<blockquote>` tag.
 
 ## syntax:
 
-just add a caption marker on the next line after the blockquote or table followed by the caption
+just add a caption marker on the next line after a blockquote or table, followed by the caption
 text.
 
-markers: `caption:`, `table:`, `quote:`, `cite:`
+default markers: `caption:`, `table:`, `quote:`, `cite:`
 
 markers are case-insensitive.
 
+### examples:
+
+simple blockquote example:
+
 ```markdown
-> blockqupte
+> blockquote text
 
 caption: this will be the caption
+
+rest of the markdown content
 ```
 
-if no caption is detected, it will still wrap it in a figure, but not add a `<figcaption>` tag.
+multiline captions are also supported (useful if there are long links in the caption):
 
-will also give the wrapping figcaption a class for easy styling with css. `blockquote-figure` is the
-class for blockquotes and `table-figure` for tables.
+```markdown
+> blockquote text
 
-## config/options:
+caption: A caption with
+[a very long link](https://example.com/veryverylonglink/to/a/source/that/you/want/to/cite)
 
+rest of the markdown content
 ```
-captionWrapper({
-  markers: ['marker1:', 'marker2:', 'anothermarker:'], // default: ['caption:', 'table:', 'quote:', 'cite:']
+
+## styling
+
+the wrapping figcaption will get a class attribute for easy styling with css. `blockquote-figure` is
+the class for blockquotes and `table-figure` for tables.
+
+### configuration:
+
+| Name       | Type   | default                                                   | Description                                                          |
+| ---------- | ------ | --------------------------------------------------------- | -------------------------------------------------------------------- |
+| markers    | array  | ['caption:', 'table:', 'quote:', 'cite:']                 | the markers you want to use                                          |
+| classNames | object | { table: 'table-figure', blockquote: 'blockquote-figure'} | the classnames you want to apply to the corresponding figure element |
+
+for example:
+
+```js
+  markers: ['custommarker1:', 'marker2:', 'anothermarker:'], // default: ['caption:', 'table:', 'quote:', 'cite:']
   classNames: {
     table: 'custom-table-figure', // default: 'table-figure'
     blockquote: 'custom-blockquote-figure', // default: 'blockquote-figure'
   }
-})
 ```
 
 ## todo
